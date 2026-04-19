@@ -20,8 +20,8 @@
  */
 
 //Include initialized devices and ProsAuton.h.
-#include "Lem_Initialize.h"
-#include "LemAuton.h"
+#include "Initialize.h"
+#include "Auton.h"
 #include "lemlib/timer.hpp"
 
 

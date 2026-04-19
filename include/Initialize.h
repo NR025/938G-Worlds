@@ -50,4 +50,6 @@ extern lemlib::ExpoDriveCurve SteerCurve;
 extern lemlib::ControllerSettings LController;
 extern lemlib::ControllerSettings AController;
 
+extern pros::Distance Front;
+
 #endif //_PROS_IMP_H_

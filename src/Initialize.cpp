@@ -5,7 +5,7 @@
  */
 
 //Includes Pros.Imp.
-#include "Lem_Initialize.h"
+#include "Initialize.h"
 
 //- Define objects as initialization.
 
@@ -55,7 +55,7 @@ pros::adi::Pneumatics MatchLoader('b', false);
 //Defines sensors and odom
 pros::Imu IMU(16);
 //pros::Rotation VerticalSensor(1);
-s
+pros::Distance Front(5);
 //Defines extra opcontrol lemlib.
 /*
 lemlib::ExpoDriveCurve ThrottleCurve (3,
@@ -100,33 +100,4 @@ lemlib::Chassis chassis (drivetrain,
 						LateralPID,
 						TurningPID,
 						OSensors);
-//
 
-
-/*
-lemlib::ControllerSettings LController (4, // proportional gain (kP)
-                                        -1, // integral gain (kI)
-                                        20, // derivative gain (kD)
-                                        3, // anti windup
-                                    	1, // small error range, in inches
-                                        100, // small error range timeout, in milliseconds
-										3, // large error range, in inches
-										500, // large error range timeout, in milliseconds
-										20 // maximum acceleration (slew)
-);
-
-
-lemlib::ControllerSettings AControllerOLD (8, // proportional gain (kP)
-										0, // integral gain (kI)
-										100, // derivative gain (kD)
-										3, // anti windup
-										1, // small error range, in degrees
-										100, // small error range timeout, in milliseconds
-										3, // large error range, in degrees
-										500, // large error range timeout, in milliseconds
-										0 // maximum acceleration (slew)
-);
-
-
-
-*/

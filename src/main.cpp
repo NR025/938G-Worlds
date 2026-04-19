@@ -7,8 +7,8 @@
 //#We include main.h and LemImp, Op, and Auton.
 #include "lemlib/api.hpp"
 #include "main.h"
-#include "Lem_Initialize.h"
-#include "LemAuton.h"
+#include "Initialize.h"
+#include "Auton.h"
 #include "lemlib/timer.hpp"
 
 /**
