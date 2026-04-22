@@ -66,17 +66,20 @@ float calculateDistanceFromLeft() {
 void soloAWP() {
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     chassis.setPose(47, 0, 0);
-    
-    // Go to first match loader (right)
-    chassis.moveToPoint(47, 48, 3000);
-    chassis.waitUntilDone();
 
+    // Go to first match loader (right)
+    int firstMatchLoaderY = 47;
+    chassis.moveToPoint(47, firstMatchLoaderY, 2200, {.maxSpeed = 80});
+    chassis.waitUntilDone();
+    
+    /*
     float currentY = calculateDistanceFromFront();
     chassis.setPose(47, currentY, 0);
-    chassis.moveToPoint(47, 48, 2000, {.maxSpeed = 60});
+    chassis.moveToPoint(47, firstMatchLoaderY, 500, {.maxSpeed = 60});
     chassis.waitUntilDone();
+    */
 
-
+    int firstLongGoalY = 48;
     chassis.turnToHeading(90, 1000, {.maxSpeed = 90});
     Hood.set_value(true);
     MatchLoader.set_value(true);
@@ -84,14 +87,14 @@ void soloAWP() {
     Intake.move(127);
     Transfer.move(-127);
     Outtake.move(127);
-    chassis.moveToPoint(57, 48, 2000, {.minSpeed = 40});
+    chassis.moveToPoint(58, firstLongGoalY, 1500, {.minSpeed = 40});
     chassis.waitUntilDone();
     pros::delay(700);
-    
+
     // go to long goal and outtake
     //float currentY2 = calculateDistanceFromLeft();
     //chassis.setPose(62, currentY2, 90);
-    chassis.moveToPoint(29, 48, 2000, {.forwards = false, .maxSpeed = 90});
+    chassis.moveToPoint(29, firstLongGoalY, 2000, {.forwards = false, .maxSpeed = 90});
     MatchLoader.set_value(false);
     chassis.waitUntilDone();
 
@@ -101,26 +104,24 @@ void soloAWP() {
     chassis.arcade(0, 0);
     float currentY3 = calculateDistanceFromLeft();
     chassis.setPose(29, currentY3, 90);
-    
+
     // leave long goal and go to right cluster of 3 blocks
     //chassis.setPose(28, 48, chassis.getPose().theta);
-    pros::delay(50);
-    chassis.moveToPoint(36, 48, 2000);
+    chassis.moveToPoint(36, 48, 1000);
     chassis.waitUntilDone();
-    chassis.turnToPoint(29,24, 2000);
+    chassis.turnToPoint(29,24, 1000);
     chassis.waitUntilDone();
     Hood.set_value(true);
-    
-    chassis.moveToPoint(29, 24, 2000, {.minSpeed = 70});
-    chassis.waitUntilDone();
-    //pros::delay(100);
-    //MatchLoader.set_value(false);
 
+    chassis.moveToPoint(29, 24, 1000);
+    chassis.waitUntilDone();
+    pros::delay(200);
+    
     // go to the second left cluster of 3 blocks
     chassis.turnToHeading(180, 500);
     chassis.waitUntilDone();
     
-    chassis.moveToPoint(29, -20, 2000, {.minSpeed = 40});
+    chassis.moveToPoint(29, -20, 2000);
     //chassis.waitUntil(20);
     //MatchLoader.set_value(true);
     chassis.waitUntilDone();
@@ -148,6 +149,7 @@ void soloAWP() {
     chassis.arcade(0, 0);
     chassis.setPose(28.5, -48, chassis.getPose().theta);
     
+    /*
     // collect blocks from left match loader
     MatchLoader.set_value(true);
     pros::delay(350);
@@ -167,9 +169,7 @@ void soloAWP() {
     Transfer.move(-127);
 
 
-
-
-
+    */
 }
 
 
