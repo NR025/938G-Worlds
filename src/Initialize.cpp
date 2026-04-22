@@ -55,7 +55,8 @@ pros::adi::Pneumatics MatchLoader('b', false);
 //Defines sensors and odom
 pros::Imu IMU(16);
 //pros::Rotation VerticalSensor(1);
-pros::Distance Front(5);
+pros::Distance FrontDistanceSensor(5);
+pros::Distance LeftDistanceSensor(14);
 //Defines extra opcontrol lemlib.
 /*
 lemlib::ExpoDriveCurve ThrottleCurve (3,
@@ -86,16 +87,17 @@ lemlib::ControllerSettings LateralPID(10, // proportional gain (kP)
                                               20 // maximum acceleration (slew)
 );
 
-lemlib::ControllerSettings TurningPID (5, // proportional gain (kP)
+lemlib::ControllerSettings TurningPID(10, // proportional gain (kP)
                                               0, // integral gain (kI)
-                                              45, // derivative gain (kD)
-                                              0, // anti windup
-                                              0, // small error range, in inches
-                                              0, // small error range timeout, in milliseconds
-                                              0, // large error range, in inches
-                                              0, // large error range timeout, in milliseconds
-                                              0 // maximum acceleration (slew)
+                                              20, // derivative gain (kD)
+                                              3, // anti windup
+                                              1, // small error range, in inches
+                                              100, // small error range timeout, in milliseconds
+                                              3, // large error range, in inches
+                                              500, // large error range timeout, in milliseconds
+                                              20 // maximum acceleration (slew)
 );
+
 lemlib::Chassis chassis (drivetrain,
 						LateralPID,
 						TurningPID,

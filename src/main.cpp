@@ -94,6 +94,8 @@ void autonomous() {
 	// chassis.setPose(0, 0, 0);
 	// chassis.moveToPoint(0, 24, 2000);
 	// chassis.waitUntilDone();
+	// chassis.turnToHeading(90, 2000);
+	// chassis.waitUntilDone();
 	//testMatchLoader();
 	//testDistanceSensors();
 	//testTurn();
@@ -219,16 +221,9 @@ void opcontrol() {
 				pros::delay(250);
 
 			}
-		if (MasterCont.get_digital(pros::E_CONTROLLER_DIGITAL_B))
-			{
-				Descore2.set_value(true);
-			}
 
-			else
-			{
-				Descore2.set_value(false);
-			}
+	
 
 	}
-
+	}
 }

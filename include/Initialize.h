@@ -12,6 +12,9 @@
 #define _PROS_IMP_H_
 
 //- Declare objects as initialization.
+#define FRONT_DISTANCE_SENSOR_TO_CENTER  5.5
+#define LEFT_DISTANCE_SENSOR_TO_CENTER  5.25
+#define HALF_FIELD_DISTANCE 72
 
 //Declare controller and other general objects.
 extern pros::Controller MasterCont;
@@ -50,6 +53,7 @@ extern lemlib::ExpoDriveCurve SteerCurve;
 extern lemlib::ControllerSettings LController;
 extern lemlib::ControllerSettings AController;
 
-extern pros::Distance Front;
+extern pros::Distance FrontDistanceSensor;
+extern pros::Distance LeftDistanceSensor;
 
 #endif //_PROS_IMP_H_
