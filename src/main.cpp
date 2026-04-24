@@ -66,13 +66,13 @@ void squareTest() {
 
 void testTurn()	{
 	chassis.setPose(0, 0, 0);
-	chassis.turnToHeading(90, 3000);
+	chassis.turnToHeading(90, 1000);
 	chassis.waitUntilDone();
-	chassis.turnToHeading(180, 3000);
+	chassis.turnToHeading(180, 1000);
 	chassis.waitUntilDone();
-	chassis.turnToHeading(270, 3000);
+	chassis.turnToHeading(270, 1000);
 	chassis.waitUntilDone();
-	chassis.turnToHeading(0, 3000);
+	chassis.turnToHeading(0, 1000);
 	chassis.waitUntilDone();
 }
 
@@ -91,12 +91,14 @@ void testTurn()	{
 void autonomous() {
 	//skillsWithDistanceSensor();
 	soloAWP();
+
+	//testTurn();
 	//sevenBlockElemsAutonRightSide();
 	// chassis.setPose(0, 0, 0);
-	// chassis.moveToPoint(0, 24, 2000);
+	// chassis.moveToPoint(0, 48, 2000);
 	// chassis.waitUntilDone();
-	// chassis.turnToHeading(90, 2000);
-	// chassis.waitUntilDone();
+	//chassis.turnToHeading(90, 2000);
+	//chassis.waitUntilDone();
 	//testMatchLoader();
 	//testDistanceSensors();
 	//testTurn();
@@ -203,6 +205,17 @@ void opcontrol() {
 			else
 			{
 				Descore.set_value(true);
+			}
+	
+		//SecondDescore
+		if (MasterCont.get_digital(pros::E_CONTROLLER_DIGITAL_B))
+			{
+				SecondDescore.set_value(true);
+			}
+
+			else
+			{
+				SecondDescore.set_value(false);
 			}
 
 

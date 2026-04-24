@@ -87,9 +87,9 @@ lemlib::ControllerSettings LateralPID(10, // proportional gain (kP)
                                               20 // maximum acceleration (slew)
 );
 
-lemlib::ControllerSettings TurningPID(10, // proportional gain (kP)
+lemlib::ControllerSettings TurningPID(4.5, // proportional gain (kP)
                                               0, // integral gain (kI)
-                                              20, // derivative gain (kD)
+                                              3, // derivative gain (kD)
                                               3, // anti windup
                                               1, // small error range, in inches
                                               100, // small error range timeout, in milliseconds

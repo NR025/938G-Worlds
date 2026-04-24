@@ -69,19 +69,18 @@ void soloAWP() {
 
     // Go to first match loader (right)
     int firstMatchLoaderY = 47;
-    chassis.moveToPoint(47, firstMatchLoaderY, 2000, {.maxSpeed = 100});
+    chassis.moveToPoint(47, firstMatchLoaderY, 1500, {.maxSpeed = 100});
     SecondDescore.set_value(true);
     chassis.waitUntilDone();
     
-    
+    /*
     float currentY = calculateDistanceFromFront();
-    chassis.setPose(47, currentY, 0);
+    chassis.setPose(47, currentY, chassis.getPose().theta);
     chassis.moveToPoint(47, firstMatchLoaderY, 500, {.maxSpeed = 60});
     chassis.waitUntilDone();
-
+    */
     
-
-    chassis.turnToHeading(90, 1000, {.maxSpeed = 100});
+    chassis.turnToHeading(90, 1500, {.maxSpeed = 80});
     chassis.waitUntilDone();
 
     MatchLoader.set_value(true);
@@ -91,14 +90,13 @@ void soloAWP() {
     Outtake.move(127);
     pros::delay(145);
 
-    chassis.moveToPoint(56, firstMatchLoaderY, 1500, {.minSpeed = 60});
+    chassis.moveToPoint(54, firstMatchLoaderY, 1500, {.minSpeed = 60});
     chassis.waitUntilDone();
-    chassis.arcade(25, 0);
-    pros::delay(650);
+    chassis.arcade(20, 0);
+    pros::delay(800);
     chassis.arcade(0, 0);
 
-
-    int firstLongGoalY = 48;
+    int firstLongGoalY = 49;
     // go to long goal and outtake
     //float currentY2 = calculateDistanceFromLeft();
     //chassis.setPose(62, currentY2, 90);
@@ -109,71 +107,87 @@ void soloAWP() {
     chassis.arcade(-127, 0);
     Hood.set_value(false);
     pros::delay(670);
+
     chassis.arcade(0, 0);
+    //pros::delay(500);
+    
     float currentY3 = calculateDistanceFromLeft();
-    chassis.setPose(29, currentY3, chassis.getPose().theta);
+    chassis.setPose(29, currentY3, 90);
+
+    //pros::lcd::print(2, "Current Y: %f currenttheta: %d", currentY3, currenttheta);
 
     // leave long goal and go to right cluster of 3 blocks
     //chassis.setPose(28, 48, chassis.getPose().theta);
-    chassis.moveToPoint(36, 48, 1000, {.minSpeed = 30});
+    chassis.moveToPoint(36, 48, 1000, {.minSpeed = 20});
     //chassis.waitUntilDone();
-    chassis.turnToPoint(26,25, 5000, {.minSpeed = 30});
+
+    int blockClusterX = 23.5;
+    chassis.turnToPoint(blockClusterX, 24, 700, {.minSpeed = 20});
     chassis.waitUntilDone();
     Hood.set_value(true);
 
-    chassis.moveToPoint(26, 25, 1000, {.minSpeed =30});
+    chassis.moveToPoint(blockClusterX, 24, 1000);
     //chassis.waitUntilDone();
     //pros::delay(70);
     
     // go to the second left cluster of 3 blocks
-    chassis.turnToHeading(180, 500, {.minSpeed = 30});
+    chassis.turnToHeading(178, 700, {.minSpeed = 20});
     chassis.waitUntilDone();
-    
-    chassis.moveToPoint(27, -20, 2000, {.minSpeed = 40});
+ 
+    int secondBlockClusterX = 22.7; //38;
+    chassis.moveToPoint(secondBlockClusterX, -24, 2000, {.minSpeed = 30});
     //chassis.waitUntil(20);
     //MatchLoader.set_value(true);
     //chassis.waitUntilDone();
     //MatchLoader.set_value(false);
     
-    // score blocks in left long goal
-    chassis.turnToPoint(55, -48.5, 400, {.minSpeed = 40});
+    // go to left long goal
+    int secondLongGoalY = -48;
+    chassis.turnToPoint(50, secondLongGoalY, 400, {.minSpeed = 20});
     chassis.waitUntilDone();
 
-    chassis.moveToPoint(55, -48.5, 1100, {.minSpeed = 45});
-    //chassis.waitUntilDone();
-
-    chassis.turnToHeading(90, 500, {.minSpeed = 40});
+    chassis.moveToPoint(50, secondLongGoalY, 2000);
     chassis.waitUntilDone();
-    chassis.setPose(55, -48.5, 90);
-    /*
-    chassis.moveToPoint(35, -49.5, 2000, {.forwards = false, .minSpeed = 40});
+
+    chassis.turnToHeading(90, 500, {.minSpeed = 20});
+    chassis.waitUntilDone();
+    chassis.setPose(50, secondLongGoalY, 90);
+    
+    // Align with the long goal and outtake
+    chassis.moveToPoint(30, -49, 1000, {.forwards = false, .maxSpeed = 75});
     chassis.waitUntilDone();
     Hood.set_value(false);
     chassis.arcade(-127, 0);
     MatchLoader.set_value(true);
     pros::delay(670);
     chassis.arcade(0, 0);
-    chassis.setPose(28.5, -48.5, 90);
+    chassis.setPose(28.5, -48, 90);
+
     
     // collect blocks from left match loader
-    chassis.moveToPoint(43, -48.5, 2000);
+    chassis.moveToPoint(43, -48, 2000);
     chassis.waitUntilDone();
-    chassis.moveToPoint(65, -48.5, 2000, {.minSpeed = 65});
+    chassis.moveToPoint(59, -48, 2000, {.minSpeed = 60});
     Hood.set_value(true);
     chassis.waitUntilDone();
+    chassis.arcade(20, 0);
     pros::delay(475);
+    chassis.arcade(0, 0);
 
     // Score in mid goal
-    chassis.moveToPoint(48, -50.5, 2000, {.forwards = false, .minSpeed = 40});
-    chassis.turnToPoint(20, -10, 1000, {.forwards = false, .minSpeed = 40});
+    chassis.moveToPoint(48, -50.5, 2000, {.forwards = false, .minSpeed = 20});
+    chassis.turnToPoint(21, -12.5, 1000, {.forwards = false, .minSpeed = 20});
     chassis.waitUntilDone();
-    chassis.moveToPoint(20, -10, 2000, {.forwards = false, .minSpeed = 60, .earlyExitRange = 0.5});
+    chassis.moveToPoint(21, -12.5, 2000, {.forwards = false, .minSpeed = 60, .earlyExitRange = 0.5});
     Hood.set_value(false);
     chassis.waitUntilDone();
     Intake.move(127);
     Outtake.move(-127);
-    Transfer.move(-127);*/
-
+    Transfer.move(-127);
+    pros::delay(1000);
+    Intake.move(0);
+    Outtake.move(0);
+    Transfer.move(0);
 
 }
 
