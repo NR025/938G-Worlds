@@ -21,7 +21,8 @@
 
 //Include initialized devices and ProsAuton.h.
 #include "Initialize.h"
-#include "Auton.h"
+//#include "Auton.h"
+#include "auton_fast.h"
 #include "lemlib/timer.hpp"
 
 
