@@ -48,7 +48,7 @@ pros::Motor Transfer (6);
 
 //Define pneumatics.
 pros::adi::Pneumatics Hood('a', false);
-pros::adi::Pneumatics Descore2('c', false);
+pros::adi::Pneumatics SecondDescore('c', false);
 pros::adi::Pneumatics Descore('h', true);
 pros::adi::Pneumatics MatchLoader('b', false);
 

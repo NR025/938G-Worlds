@@ -91,6 +91,7 @@ void testTurn()	{
 void autonomous() {
 	//skillsWithDistanceSensor();
 	soloAWP();
+	//sevenBlockElemsAutonRightSide();
 	// chassis.setPose(0, 0, 0);
 	// chassis.moveToPoint(0, 24, 2000);
 	// chassis.waitUntilDone();

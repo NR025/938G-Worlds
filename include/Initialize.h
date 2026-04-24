@@ -40,6 +40,7 @@ extern pros::Motor Outtake;
 
 //Declare pneumatics.
 extern pros::adi::Pneumatics Descore;
+extern pros::adi::Pneumatics SecondDescore;
 extern pros::adi::Pneumatics MatchLoader;
 extern pros::adi::Pneumatics Hood;
 
