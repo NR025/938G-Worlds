@@ -12,6 +12,8 @@
 #define _PROS_AUTON_H_
 
 void soloAWP();
+void soloAWPFast();
 void sevenBlockElemsAutonRightSide();
+void awpRightSide();
 
 #endif //_PROS_AUTON_H_ 

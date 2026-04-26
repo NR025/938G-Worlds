@@ -28,6 +28,8 @@ void initialize() {
 
 	//# Calibrate the chassis.
 	chassis.calibrate();
+	Descore.set_value(false);
+	SecondDescore.set_value(true);
 }
 
 /**
@@ -90,12 +92,14 @@ void testTurn()	{
  */
 void autonomous() {
 	//skillsWithDistanceSensor();
-	soloAWP();
+	//soloAWP();
+	//soloAWPFast();
+	awpRightSide();
 
 	//testTurn();
 	//sevenBlockElemsAutonRightSide();
 	// chassis.setPose(0, 0, 0);
-	// chassis.moveToPoint(0, 48, 2000);
+	// chassis.moveToPoint(0, 5, 1000);
 	// chassis.waitUntilDone();
 	//chassis.turnToHeading(90, 2000);
 	//chassis.waitUntilDone();

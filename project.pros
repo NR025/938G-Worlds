@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "SAWP",
+    "project_name": "rightSideAWP",
     "target": "v5",
     "templates": {
       "LemLib": {
@@ -635,7 +635,8 @@
       }
     },
     "upload_options": {
-      "icon": "pizza"
+      "icon": "pizza",
+      "slot": 3
     },
     "use_early_access": false
   }
