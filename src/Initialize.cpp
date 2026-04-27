@@ -22,7 +22,7 @@ pros::Motor LMwheel (-12,
 					pros::v5::MotorGears::blue);
 pros::Motor LBwheel (-13, 
 					pros::v5::MotorGears::blue);
-pros::Motor RFwheel (20,
+pros::Motor RFwheel (15,
 					pros::v5::MotorGears::blue);
 pros::Motor RMwheel (19,
 					pros::v5::MotorGears::blue);
@@ -31,7 +31,7 @@ pros::Motor RBwheel (18,
 
 pros::MotorGroup LMotorGroup ({-11, -12, -13}, 
 							 pros::v5::MotorGearset::blue);
-pros::MotorGroup RMotorGroup ({20, 19, 18}, 
+pros::MotorGroup RMotorGroup ({15, 19, 18}, 
 							 pros::v5::MotorGearset::blue);
 
 lemlib::Drivetrain drivetrain (&LMotorGroup, 

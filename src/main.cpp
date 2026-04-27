@@ -92,10 +92,13 @@ void testTurn()	{
  */
 void autonomous() {
 	//skillsWithDistanceSensor();
-	//soloAWP();
-	//soloAWPFast();
-	awpRightSide();
+	// fastSoloAWP();
 
+	// awpRightSide();
+	//fastSoloAWP();
+	// sevenBlockElemsAutonRightSide();
+	fourBlockElemsAutonRightSide();
+	//awpLeftSide();
 	//testTurn();
 	//sevenBlockElemsAutonRightSide();
 	// chassis.setPose(0, 0, 0);
@@ -149,7 +152,7 @@ void opcontrol() {
 		}
 
 		//mid goal outtake
-		else if (MasterCont.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
+		else if (MasterCont.get_digital(pros::E_CONTROLLER_DIGITAL_Y)){
 
 			Intake.move(127);
 			Transfer.move(-127);
@@ -158,22 +161,13 @@ void opcontrol() {
 		}
 
 		//Reverse(Low goal) outake.
-		else if (MasterCont.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
+		else if (MasterCont.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
 
 			Intake.move(-127);
 			Transfer.move(127);
 			Outtake.move(-127);
 		}
 
-
-		// Score long goal
-		else if (MasterCont.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-
-			Hood.set_value(true);
-			Intake.move(127);
-			Transfer.move(127);
-			Outtake.move(-127);
-		}
 
 
 		else {
@@ -201,7 +195,7 @@ void opcontrol() {
 		}
 
 		//Descore
-		if (MasterCont.get_digital(pros::E_CONTROLLER_DIGITAL_R2))
+		if (MasterCont.get_digital(pros::E_CONTROLLER_DIGITAL_L1))
 			{
 				Descore.set_value(false);
 			}
@@ -212,7 +206,7 @@ void opcontrol() {
 			}
 	
 		//SecondDescore
-		if (MasterCont.get_digital(pros::E_CONTROLLER_DIGITAL_B))
+		if (MasterCont.get_digital(pros::E_CONTROLLER_DIGITAL_L2))
 			{
 				SecondDescore.set_value(true);
 			}
